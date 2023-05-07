@@ -12,8 +12,9 @@ const { generateFakeData } = require('../faker2');
 
 const server = async()=>{
   try{
-    const {MONGO_URI} = process.env;
+    const {MONGO_URI , PORT} = process.env;
   if(!MONGO_URI) throw new Error("MONGO_URI is required!!")
+  if(!PORT) throw new Error("PORT is required!!")
 
 
     await mongoose.mongoose.connect(MONGO_URI, 
@@ -26,7 +27,7 @@ const server = async()=>{
     app.use('/blog', blogRouter)
     app.use('/user', userRouter)
 
-    app.listen(3000,()=> console.log('server listening on port 3000'));
+    app.listen(PORT,()=> console.log(`server listening on port ${PORT}`));
     // for(let i =0;i<20;i++){ // 데이터 추가 한번에 데이터 요청시 과부하 발생
     // console.time("insert time");
     // await generateFakeData(10,2,10);
