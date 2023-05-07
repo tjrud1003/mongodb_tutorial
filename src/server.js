@@ -6,9 +6,16 @@ const {userRouter, blogRouter } = require("./routes");
 const { generateFakeData } = require('../faker2');
 
 // const MONGO_URI ="mongodb+srv://admin:123456789aA!@mongodbtutorial.vkckldg.mongodb.net/BlogartService?retryWrites=true&w=majority"
-const MONGO_URI ="mongodb+srv://admin:123456789aA!@mongodbtutorial.vkckldg.mongodb.net/BlogService?retryWrites=true&w=majority"
+
+
+
+
 const server = async()=>{
   try{
+    const {MONGO_URI} = process.env;
+  if(!MONGO_URI) throw new Error("MONGO_URI is required!!")
+
+
     await mongoose.mongoose.connect(MONGO_URI, 
       {
         useUnifiedTopology: true,
