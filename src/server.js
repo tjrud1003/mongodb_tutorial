@@ -13,6 +13,9 @@ const { generateFakeData } = require('../faker2');
 const server = async()=>{
   try{
     const {MONGO_URI , PORT} = process.env;
+    console.log("chekc:MONGO_URI  " , MONGO_URI)
+    console.log("chekc:PORT  " , PORT)
+
   if(!MONGO_URI) throw new Error("MONGO_URI is required!!")
   if(!PORT) throw new Error("PORT is required!!")
 
