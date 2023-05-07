@@ -5,10 +5,8 @@ const mongoose = require("mongoose")
 const {userRouter, blogRouter } = require("./routes");
 const { generateFakeData } = require('../faker2');
 
-// const MONGO_URI ="mongodb+srv://admin:123456789aA!@mongodbtutorial.vkckldg.mongodb.net/BlogartService?retryWrites=true&w=majority"
 
 dotenv = require('dotenv');
-
 dotenv.config();
 
 const server = async()=>{
